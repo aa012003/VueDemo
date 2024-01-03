@@ -62,14 +62,14 @@
             })
     
   }
-
-  checkBtn.addEventListener('click', checkLogin);
-  function checkLogin(params) {
-    // #3 取得 Token（Token 僅需要設定一次）
+// #3 取得 Token（Token 僅需要設定一次）
     const token = document.cookie.replace(
   /(?:(?:^|.*;\s*)joyToken\s*\=\s*([^;]*).*$)|^.*$/,
   "$1",
 );
+  checkBtn.addEventListener('click', checkLogin);
+  function checkLogin(params) {
+    
   
     console.log(token);
     axios.defaults.headers.common['Authorization'] = token;
@@ -86,6 +86,13 @@
   getProductsBtn.addEventListener('click', getProducts)
   function getProducts() {
     // #5 取得後台產品列表
+    axios.post(`${url}/api/${path}/admin/products`)
+      .then((res)=>{
+        console.log(res.data)
+      })
+      .catch((error)=>{
+        console.dir(error);
+      })
   }
 
 

@@ -86,7 +86,7 @@
   getProductsBtn.addEventListener('click', getProducts)
   function getProducts() {
     // #5 取得後台產品列表
-    axios.post(`${url}/api/${path}/admin/products`)
+    axios.get(`${url}/api/${path}/admin/products`)
       .then((res)=>{
         console.log(res.data)
       })
@@ -101,7 +101,7 @@
 
     const product = {
       data: {
-        title: '[賣]動物園造型衣服3', 
+        title: '[賣]動物園造型衣服55', 
         category: '衣服2',
         origin_price: 100,
         price: 300,
@@ -114,6 +114,13 @@
     }
     
     // #6 新增一個產品
+    axios.post(`${url}/api/${path}/admin/product`,product)
+      .then((res)=>{
+        console.log(res.data)
+      })
+      .catch((error)=>{
+        console.dir(error);
+      })
   }
 
 

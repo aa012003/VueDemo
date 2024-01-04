@@ -125,6 +125,14 @@ axios.defaults.headers.common['Authorization'] = token;
   delProductBtn.addEventListener('click', removeProduct)
   function removeProduct() {
     // #7 刪除一個產品
+    axios.delete(`${url}/api/${path}/admin/product/-NnF8v22VBMAzig6wZGe`)
+      .then((res)=>{
+        console.log(res.data);
+      })
+      
+      .catch((error)=>{
+        console.dir(error);
+      })
   }
 
   </script>
